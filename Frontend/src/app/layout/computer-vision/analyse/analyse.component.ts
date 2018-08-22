@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FileUpload } from '../../shared/models/FileUpload';
-import { ComputerVisionService } from './computer-vision.service';
-import { ImageAnalisys } from '../../shared/models/ImageAnalysis';
+import { FileUpload } from '../../../shared/models/FileUpload';
+import { ComputerVisionService } from '../computer-vision.service';
+import { ImageAnalisys } from '../../../shared/models/ImageAnalysis';
 
 @Component({
-  selector: 'app-computer-vision',
-  templateUrl: './computer-vision.component.html',
-  styleUrls: ['./computer-vision.component.scss']
+  selector: 'app-analyse',
+  templateUrl: './analyse.component.html',
+  styleUrls: ['./analyse.component.scss']
 })
-export class ComputerVisionComponent implements OnInit {
+export class AnalyseImageComponent implements OnInit {
 
   public url: string;
   public uploadingImage: boolean;
@@ -27,7 +27,7 @@ export class ComputerVisionComponent implements OnInit {
     const reader = new FileReader();
     let fileData: FileUpload;
     reader.readAsDataURL(fileToUpload);
-    reader.onload = () => {
+    reader.onload = (file: any) => {
       fileData = new FileUpload(
         fileToUpload.name,
         fileToUpload.type,
@@ -39,6 +39,9 @@ export class ComputerVisionComponent implements OnInit {
           this.imageData = s;
         }
       );
+
+      this.url = file.target.result;
+
     };
   }
   public getFileInfoFromUrl(url: string) {

@@ -16,13 +16,13 @@ namespace CognitiveServices.Controllers
 
         public ComputerVisionController()
         {
-            _computerVisionService = new ComputerVisionClient(new ApiKeyServiceClientCredentials("<YOUR KEY>"),
+            _computerVisionService = new ComputerVisionClient(new ApiKeyServiceClientCredentials("YOUR KEY"),
                 new System.Net.Http.DelegatingHandler[] { });
             _computerVisionService.Endpoint = "https://brazilsouth.api.cognitive.microsoft.com/";
         }
 
-        [HttpPost, Route("getInfoFromUrl")]
-        public async Task<IActionResult> GetInfoFromUrl([FromBody]ImageUrlModel data)
+        [HttpPost, Route("analyzeImageFromUrl")]
+        public async Task<IActionResult> AnalyzeImageFromUrl([FromBody]ImageUrlModel data)
         {
             if (!Uri.IsWellFormedUriString(data.Url, UriKind.Absolute))
             {
@@ -38,8 +38,8 @@ namespace CognitiveServices.Controllers
             return Ok(response);
         }
 
-        [HttpPost, Route("getInfo")]
-        public async Task<IActionResult> GetInfo([FromBody]ImageUploadModel data)
+        [HttpPost, Route("analyzeImage")]
+        public async Task<IActionResult> AnalyzeImage([FromBody]ImageUploadModel data)
         {
             var features = new VisualFeatureTypes[] { VisualFeatureTypes.Tags, VisualFeatureTypes.Description };
             using (Stream imageStream = new MemoryStream(Convert.FromBase64String(data.value)))

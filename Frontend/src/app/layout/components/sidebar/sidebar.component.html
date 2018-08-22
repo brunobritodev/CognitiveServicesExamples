@@ -1,14 +1,24 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
     <div class="list-group">
-        
-        <a [routerLink]="['/computer-vision']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
+    <div class="nested-menu">
+        <a class="list-group-item" (click)="addExpandClass('pages')">
+            <i class="fa fa-plus"></i>&nbsp;
             <span>Computer Vision</span>
         </a>
-        
+        <li class="nested" [class.expand]="showMenu === 'pages'">
+            <ul class="submenu">
+                <li>
+                    <a [routerLink]="['/computer-vision']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                        <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
+                        <span>Image analysis</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </div>
     <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
         <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
         <span>{{ 'Collapse Sidebar' | translate }}</span>
+    </div>
     </div>
 </nav>

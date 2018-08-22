@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ComputerVisionComponent } from './computer-vision.component';
-import { Routes, RouterModule } from '../../../../node_modules/@angular/router';
-import { FormsModule } from '../../../../node_modules/@angular/forms';
+import { AnalyseImageComponent } from './analyse/analyse.component';
+import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { ComputerVisionService } from './computer-vision.service';
 
 const routes: Routes = [
   {
       path: '',
-      component: ComputerVisionComponent
+      component: AnalyseImageComponent
   }
 ];
 
@@ -19,7 +19,7 @@ const routes: Routes = [
     FormsModule
   ],
   exports: [RouterModule],
-  declarations: [ComputerVisionComponent],
+  declarations: [AnalyseImageComponent],
   providers: [
     ComputerVisionService
   ]
