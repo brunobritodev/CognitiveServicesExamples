@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Computer Vision</h1>
+  <hr>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+      <img class="img-thumbnail" width="500px" [src]="url == '' ? 'http://placehold.it/400x400' : url" alt="">
+    <fieldset class="form-group">
+      <label>Image Url</label>
+      <input class="form-control" type="text" [(ngModel)]="url" placeholder="Enter Url">
+      <button type="button" class="btn btn-primary" (click)="getFileInfoFromUrl(url)">Analyse URL</button>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label for="exampleInputFile">File input</label>
+      <input type="file" class="form-control-file" (change)="handleFileInput($event.target.files)">
+    </fieldset>
+  </div>
+  <div class="col-lg-6">
+      <div class="card mb-3">
+          <div class="card-header">Response</div>
+          <div class="card-body">
+              <pre>{{imageData | json}}</pre>
+          </div>
+      </div>
+  </div>
+</div>
