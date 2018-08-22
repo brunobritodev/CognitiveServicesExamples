@@ -16,7 +16,7 @@ namespace CognitiveServices.Controllers
 
         public ComputerVisionController()
         {
-            _computerVisionService = new ComputerVisionClient(new ApiKeyServiceClientCredentials("97d853003f5f47b6a51ee2628a6cc64a"),
+            _computerVisionService = new ComputerVisionClient(new ApiKeyServiceClientCredentials("<YOUR KEY>"),
                 new System.Net.Http.DelegatingHandler[] { });
             _computerVisionService.Endpoint = "https://brazilsouth.api.cognitive.microsoft.com/";
         }
