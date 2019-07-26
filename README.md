@@ -1,4 +1,7 @@
 # ASP.NET Core & Cognitive Services
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/brunohbrito/CognitiveServicesExamples.svg)](https://greenkeeper.io/)
+
 <img src="https://brunobrito.ghost.io/content/images/2018/08/capa-redes-20.jpg" width="480" />
 
 Example App - Computer Vision Api through Angular app and Web Api
